@@ -9,20 +9,45 @@
 <body>
 <div class="container">
     <h1 style="text-align: center;">Euler Method Solver</h1>
-    <label for="a">Left endpoint (a): </label>
-    <input type="number" id="a" value="0"><br>
-    <label for="b">Right endpoint (b): </label>
-    <input type="number" id="b" value="1"><br>
-    <label for="n">Number of steps (n): </label>
-    <input type="number" id="n" value="10"><br>
-    <label for="alpha">Initial condition (α): </label>
-    <input type="number" id="alpha" value="1"><br>
-    <label for="functionInput">Enter your function (e.g., "t - y", "Math.exp(t) - y", "Math.log(y)"): </label>
-    <input type="text" id="functionInput" placeholder="t - y"><br>
+    <div class="form-group">
+        <label for="functionInput">Enter your function (e.g., "t - y", "Math.exp(t) - y", "Math.log(y)"): </label>
+        <div class="input-container">
+            <input type="text" id="functionInput" placeholder="t - y" class="function-input" oninput="adjustWidth(this)">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="a">Left endpoint (a): </label>
+        <div class="input-container">
+            <input type="number" id="a" value="0" oninput="adjustWidth(this)">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="b">Right endpoint (b): </label>
+        <div class="input-container">
+            <input type="number" id="b" value="1" oninput="adjustWidth(this)">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="n">Number of steps (n): </label>
+        <div class="input-container">
+            <input type="number" id="n" value="10" oninput="adjustWidth(this)">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="alpha">Initial condition (α): </label>
+        <div class="input-container">
+            <input type="number" id="alpha" value="1" oninput="adjustWidth(this)">
+        </div>
+    </div>
     <button onclick="solveAndDisplay()">Solve</button>
+    <div class="calculations">
+        <h2>Calculations:</h2>
+        <div id="calculationsContent"></div>
+    </div>
     <table id="resultTable">
         <thead>
             <tr>
+                <th>Step</th>
                 <th>t</th>
                 <th>ω</th>
             </tr>
@@ -31,6 +56,32 @@
             <!-- Results will be inserted here -->
         </tbody>
     </table>
+    <div class="instructions">
+        <p>Instructions:</p>
+        <ul>
+            <li>Use `t` for the independent variable (time).</li>
+            <li>Use `y` for the dependent variable (the function you're solving for).</li>
+            <li>Use `Math` for mathematical functions (e.g., `Math.exp`, `Math.log`, `Math.sin`).</li>
+            <li>Avoid using spaces between operators and numbers or variables.</li>
+        </ul>
+    </div>
+    <div class="example">
+        <p>Examples:</p>
+        <ul>
+            <li><strong>Linear Function:</strong> \( y' = t - y \) → <code>t - y</code></li>
+            <li><strong>Exponential Function:</strong> \( y' = e^{t} - y \) → <code>Math.exp(t) - y</code></li>
+            <li><strong>Logarithmic Function:</strong> \( y' = \ln(y) \) → <code>Math.log(y)</code></li>
+            <li><strong>Trigonometric Function:</strong> \( y' = \sin(t) + \cos(y) \) → <code>Math.sin(t) + Math.cos(y)</code></li>
+            <li><strong>Hyperbolic Function:</strong> \( y' = \sinh(t) - \cosh(y) \) → <code>Math.sinh(t) - Math.cosh(y)</code></li>
+            <li><strong>Power Function:</strong> \( y' = t^2 + y^3 \) → <code>Math.pow(t, 2) + Math.pow(y, 3)</code></li>
+            <li><strong>Rational Function:</strong> \( y' = \frac{t}{y} \) → <code>t / y</code></li>
+            <li><strong>Piecewise Function:</strong> \( y' = 
+                \begin{cases} 
+                    t & \text{if } t < 0 \\
+                    y & \text{otherwise}
+                \end{cases} \) → <code>(t < 0) ? t : y</code></li>
+        </ul>
+    </div>
 </div>
 <script src="script.js"></script>
 </body>
