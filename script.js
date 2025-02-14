@@ -68,13 +68,51 @@ function solveAndDisplay() {
     try {
         const f = parseFunction(funcStr);
         const result = eulerMethod(f, a, b, n, alpha);
-        
+
+        // Display calculations
+        const calculationsContent = document.getElementById('calculationsContent');
+        calculationsContent.innerHTML = '';
+
+        // Compute h once and reuse
+        const h = (b - a) / n;
+
+        for (let i = 0; i < n; i++) {
+            const step = document.createElement('div');
+            step.className = 'step';
+            step.innerHTML = `
+                <div class="formula">Step ${i}: t = ${result.t[i]}, ω = ${result.w[i].toFixed(4)}</div>
+                <div class="formula">h = ${h.toFixed(4)}</div>
+                <div class="formula">Substitute t = ${result.t[i]} and ω = ${result.w[i].toFixed(4)} into the function:</div>
+                <div class="formula">f(${result.t[i]}, ${result.w[i].toFixed(4)}) = ${funcStr}</div>
+                <div class="formula">f(${result.t[i]}, ${result.w[i].toFixed(4)}) = ${f(result.t[i], result.w[i]).toFixed(4)}</div>
+                <div class="formula">Update ω: ω<sub>${i+1}</sub> = ω<sub>${i}</sub> + h * f(${result.t[i]}, ${result.w[i].toFixed(4)})</div>
+                <div class="formula">ω<sub>${i+1}</sub> = ${result.w[i].toFixed(4)} + ${h.toFixed(4)} * ${f(result.t[i], result.w[i]).toFixed(4)}</div>
+                <div class="formula">ω<sub>${i+1}</sub> = ${result.w[i+1].toFixed(4)}</div>
+                <div class="formula">Update t: t<sub>${i+1}</sub> = t<sub>${i}</sub> + h</div>
+                <div class="formula">t<sub>${i+1}</sub> = ${result.t[i].toFixed(4)} + ${h.toFixed(4)}</div>
+                <div class="formula">t<sub>${i+1}</sub> = ${result.t[i+1].toFixed(4)}</div>
+            `;
+            calculationsContent.appendChild(step);
+        }
+
+        // Populate the table
         const tableBody = document.querySelector('#resultTable tbody');
         tableBody.innerHTML = '';
         for (let i = 0; i <= n; i++) {
-            tableBody.innerHTML += `<tr><td>${result.t[i]}</td><td>${result.w[i].toFixed(4)}</td></tr>`;
+            tableBody.innerHTML += `<tr><td>${i}</td><td>${result.t[i]}</td><td>${result.w[i].toFixed(4)}</td></tr>`;
         }
     } catch (e) {
         alert(`Error: ${e.message}`);
     }
+}
+
+function adjustWidth(input) {
+    // Calculate the width based on the number of characters
+    const charCount = input.value.length;
+    const minWidth = 100;
+    const maxWidth = 300;
+    const stepSize = (maxWidth - minWidth) / 100; // Assuming maximum character count is 100
+
+    const newWidth = Math.min(maxWidth, minWidth + charCount * stepSize);
+    input.style.width = `${newWidth}px`;
 }
