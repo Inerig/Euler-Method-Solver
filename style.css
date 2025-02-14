@@ -23,12 +23,35 @@ body {
     align-items: center;
 }
 
-input[type="number"], input[type="text"] {
-    width: calc(100% - 22px);
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-right: 10px;
+    width: 150px; /* Fixed width for labels */
+    text-align: right;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.input-container input {
     padding: 10px;
-    margin: 5px 0;
+    margin-left: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    min-width: 100px; /* Minimum width */
+    max-width: 300px; /* Maximum width */
+    transition: width 0.3s ease;
+}
+
+.function-input {
+    order: 1;
 }
 
 button {
@@ -50,12 +73,13 @@ table {
     margin-top: 20px;
     border-collapse: collapse;
     font-size: 16px;
+    border: 2px solid black; /* Add black border for the table */
 }
 
 th, td {
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border: 2px solid black; /* Add black borders for cells */
 }
 
 th {
@@ -69,4 +93,53 @@ tr:nth-child(even) {
 
 h1, label {
     font-family: 'Comic Sans MS', cursive;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.example {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.calculations {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.calculations h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.calculations .step {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.calculations .step::before {
+    content: "•";
+    margin-right: 10px;
+    font-size: 20px;
+    color: #007bff;
+}
+
+.calculations .formula {
+    font-family: 'Courier New', monospace;
+    margin-bottom: 5px;
+}
+
+.calculations .value {
+    font-weight: bold;
+}
+
+.calculations .value.h {
+    font-style: italic;
+    font-weight: normal;
 }
