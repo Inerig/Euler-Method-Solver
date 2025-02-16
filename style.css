@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400&display=swap');
 
-
 body {
     font-family: 'Comic Neue', cursive;
     margin: 0;
@@ -9,12 +8,13 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #f0f8ff;
+    min-height: 100vh;
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     max-width: 600px;
-    min-height: 100vh;
+    min-height: auto;
     background-color: #e6f7ff;
     padding: 20px;
     border-radius: 10px;
@@ -26,19 +26,22 @@ body {
 
 .form-group {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .form-group label {
-    margin-right: 10px;
     width: 150px; 
     text-align: right;
+    font-weight: bold;
 }
 
 .input-container {
     display: flex;
     align-items: center;
+    flex-grow: 1;
 }
 
 .input-container input {
@@ -46,27 +49,37 @@ body {
     margin-left: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    min-width: 100px; 
-    max-width: 300px; 
+    min-width: 80px;
+    max-width: 100%;
     transition: width 0.3s ease;
 }
 
-.function-input {
-    order: 1;
+/* Decimal Places Input */
+.decimal-places-container {
+    margin-bottom: 15px;
+}
+
+#decimalPlaces {
+    width: 60px;
+    text-align: center;
+    font-size: 16px;
 }
 
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 table {
@@ -96,16 +109,13 @@ h1, label {
    font-family: 'Comic Neue', cursive;
 }
 
-.instructions {
+.instructions, .example {
     margin-top: 20px;
     font-size: 14px;
     line-height: 1.5;
-}
-
-.example {
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.5;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
 }
 
 .calculations {
@@ -120,14 +130,12 @@ h1, label {
     font-family: 'Comic Neue', cursive;
 }
 
-
 .calculations h2 {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
     text-decoration: underline;
 }
-
 
 .calculations .step {
     margin-bottom: 20px;
@@ -141,7 +149,6 @@ h1, label {
     font-size: 18px;
     color: #007bff; 
 }
-
 
 .calculations .k-values {
     margin-left: 15px;
@@ -162,7 +169,6 @@ h1, label {
     margin-right: 5px;
 }
 
-
 .calculations .formula {
     font-family: 'Courier New', monospace;
     font-weight: bold;
@@ -173,7 +179,6 @@ h1, label {
     margin-bottom: 5px;
 }
 
-
 .calculations .value {
     font-weight: bold;
 }
@@ -181,4 +186,31 @@ h1, label {
 .calculations .value.h {
     font-style: italic;
     font-weight: normal;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .input-container input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .decimal-places-container {
+        width: 100%;
+    }
+
+    button {
+        font-size: 16px;
+    }
 }
