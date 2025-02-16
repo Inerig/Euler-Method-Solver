@@ -39,6 +39,12 @@
             <input type="number" id="alpha" value="1" oninput="adjustWidth(this)">
         </div>
     </div>
+    <div class="form-group">
+        <label for="decimalPlaces">Decimal Places: </label>
+        <div class="input-container">
+            <input type="number" id="decimalPlaces" value="4" min="0" max="10" oninput="adjustWidth(this)">
+        </div>
+    </div>
     <button onclick="solveAndDisplay()">Solve</button>
     <div class="calculations">
         <h2>Calculations:</h2>
