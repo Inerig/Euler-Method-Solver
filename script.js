@@ -1,27 +1,27 @@
 function eulerMethod(f, a, b, n, alpha) {
-    // Compute step size
+   
     let h = (b - a) / n;
-    // Initialize arrays to store results
+    
     let t = new Array(n + 1);
     let w = new Array(n + 1);
-    // Set initial conditions
+   
     t[0] = a;
     w[0] = alpha;
-    // Perform Euler's method
+    
     for (let i = 0; i < n; i++) {
-        w[i + 1] = w[i] + h * f(t[i], w[i]);  // Update solution
-        t[i + 1] = t[i] + h;                  // Update time
+        w[i + 1] = w[i] + h * f(t[i], w[i]);  
+        t[i + 1] = t[i] + h;                  
     }
     return { t: t, w: w };
 }
 
 function parseFunction(funcStr) {
     try {
-        // Validate the function string
+       
         if (!/^[a-zA-Z0-9\s\+\-\*\/\(\)\.\,\[\]\^\%\&\|\!\<\>\=\~\`\@\#\$\^\\]+$/.test(funcStr)) {
             throw new Error("Invalid characters in function.");
         }
-        // Create a safe function from the string input with predefined Math functions
+        
         const mathFunctions = {
             Math: Math,
             exp: Math.exp,
@@ -73,7 +73,7 @@ function solveAndDisplay() {
         const calculationsContent = document.getElementById('calculationsContent');
         calculationsContent.innerHTML = '';
 
-        // Compute h once and reuse
+        
         const h = (b - a) / n;
 
         for (let i = 0; i < n; i++) {
@@ -95,7 +95,7 @@ function solveAndDisplay() {
             calculationsContent.appendChild(step);
         }
 
-        // Populate the table
+        
         const tableBody = document.querySelector('#resultTable tbody');
         tableBody.innerHTML = '';
         for (let i = 0; i <= n; i++) {
@@ -107,11 +107,11 @@ function solveAndDisplay() {
 }
 
 function adjustWidth(input) {
-    // Calculate the width based on the number of characters
+    
     const charCount = input.value.length;
     const minWidth = 100;
     const maxWidth = 300;
-    const stepSize = (maxWidth - minWidth) / 100; // Assuming maximum character count is 100
+    const stepSize = (maxWidth - minWidth) / 1000; 
 
     const newWidth = Math.min(maxWidth, minWidth + charCount * stepSize);
     input.style.width = `${newWidth}px`;
