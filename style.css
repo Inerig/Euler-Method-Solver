@@ -32,7 +32,7 @@ body {
 
 .form-group label {
     margin-right: 10px;
-    width: 150px; /* Fixed width for labels */
+    width: 150px; 
     text-align: right;
 }
 
@@ -46,8 +46,8 @@ body {
     margin-left: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    min-width: 100px; /* Minimum width */
-    max-width: 300px; /* Maximum width */
+    min-width: 100px; 
+    max-width: 300px; 
     transition: width 0.3s ease;
 }
 
@@ -74,13 +74,13 @@ table {
     margin-top: 20px;
     border-collapse: collapse;
     font-size: 16px;
-    border: 2px solid black; /* Add black border for the table */
+    border: 2px solid black; 
 }
 
 th, td {
     padding: 10px;
     text-align: center;
-    border: 2px solid black; /* Add black borders for cells */
+    border: 2px solid black; 
 }
 
 th {
@@ -120,7 +120,7 @@ h1, label {
     font-family: 'Comic Neue', cursive;
 }
 
-/* Section Title */
+
 .calculations h2 {
     font-size: 16px;
     font-weight: bold;
@@ -128,7 +128,7 @@ h1, label {
     text-decoration: underline;
 }
 
-/* Bold Steps */
+
 .calculations .step {
     margin-bottom: 20px;
     font-weight: bold;
@@ -139,10 +139,10 @@ h1, label {
     content: "▶";
     margin-right: 10px;
     font-size: 18px;
-    color: #007bff; /* Blue indicator */
+    color: #007bff; 
 }
 
-/* Organized k-values (each in a separate line) */
+
 .calculations .k-values {
     margin-left: 15px;
     font-weight: bold;
@@ -157,23 +157,23 @@ h1, label {
 
 .calculations .k-values div::before {
     content: "➤";
-    color: #007bff; /* Blue color for distinction */
+    color: #007bff; 
     font-weight: bold;
     margin-right: 5px;
 }
 
-/* Formula Styling */
+
 .calculations .formula {
     font-family: 'Courier New', monospace;
     font-weight: bold;
-    background-color: #f8f8f8;
+    background-color: #f0f8ff;
     padding: 5px;
     border-radius: 5px;
     display: inline-block;
     margin-bottom: 5px;
 }
 
-/* Values Styling */
+
 .calculations .value {
     font-weight: bold;
 }
